@@ -13,7 +13,7 @@ public class JNDI {
 		try {
 			initialContext = new InitialContext();
 			Context envContext=(Context)initialContext.lookup("java:comp/env");
-			DataSource ds=(DataSource)envContext.lookup("jdbc/orcl");
+			DataSource ds=(DataSource)envContext.lookup("jdbc/mysql");
 			conn=ds.getConnection();
 		} catch (Exception e) {
 			System.out.println("JNDI Exception Occured");

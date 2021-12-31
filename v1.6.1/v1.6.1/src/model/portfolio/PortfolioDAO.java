@@ -19,8 +19,8 @@ public class PortfolioDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
-	String sql_portInsert="insert into portfolio values((select nvl(max(portNum),0)+1 from portfolio),?,?,?,?,sysdate)";
-//	String sql_portInsert="insert into portfolio(adminNum, adminName,portTitle, portContent, portTime) values (?,?,?,?,NOW())";
+//	String sql_portInsert="insert into portfolio values((select nvl(max(portNum),0)+1 from portfolio),?,?,?,?,sysdate)";
+	String sql_portInsert="insert into portfolio(adminNum, adminName,portTitle, portContent, portTime) values (?,?,?,?,NOW())";
 	String sql_portDelete="delete from portfolio where portNum=?";	
 	String sql_portSelectAll="select * from portfolio order by portNum desc";
 	

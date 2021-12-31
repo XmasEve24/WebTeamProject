@@ -13,15 +13,15 @@ public class MemberDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	String sql_signUp="insert into member values((select nvl(max(memberNum),0)+1 from member),?,?,?,?)";
-	String sql_login="select * from member where memberId=?";
+	/*String sql_signUp="insert into member values((select nvl(max(memberNum),0)+1 from member),?,?,?,?)";
+	String sql_login="select * from member where memberId=?";*/
 	
 	// 異붽�: 留덉씠�럹�씠吏� selectAll 
 	// 留덉씠�럹�씠吏��뿉�꽌 �젙蹂댁닔�젙�떆 update 
 	// �쉶�썝�깉�눜 �떆 delete 
 	
-//	String sql_signUp="insert into member(memberName, memberId, memberPw, memberEmail) values(?,?,?,?)";
-//	String sql_login="select * from member where memberId=?";
+	String sql_signUp="insert into member(memberName, memberId, memberPw, memberEmail) values(?,?,?,?)";
+	String sql_login="select * from member where memberId=?";
 	
 	JNDI JNDIUtil = new JNDI();
 	

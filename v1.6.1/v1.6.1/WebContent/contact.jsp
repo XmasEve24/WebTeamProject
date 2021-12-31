@@ -157,8 +157,8 @@ http://www.tooplate.com/view/2082-pure-mix
 				<input name="portNum" type="text" class="form-control" placeholder="Portfolio Number" required>
 				
 			<!-- 로그인한 회원만 들어올 수 있으므로, 로그인정보에서 memberNum을 가져온다. -->
-					<input name="memberName" type="text" class="form-control" placeholder="Your Name">
-					
+					<!-- <input name="memberName" type="text" class="form-control" placeholder="Your Name"> -->
+					<input type="hidden" name="memberName" value="${memberName }">
 					
 					<input name="memberEmail" type="email" class="form-control" placeholder="Your Email" required>
 					<textarea name="contactContent" class="form-control" placeholder="Message" rows="4" required></textarea>
