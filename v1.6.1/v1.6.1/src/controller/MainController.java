@@ -18,6 +18,7 @@ import controller.action.MainAction;
 import controller.action.MemberLoginAction;
 import controller.action.PortfolioInsertAction;
 import controller.action.PortfolioSelectAllAction;
+import controller.action.PortfolioSelectOneAction;
 import controller.action.SignUpAction;
 
 /**
@@ -107,7 +108,12 @@ public class MainController extends HttpServlet {
 		} 
 		else if(command.equals("/board.do")) {		
 			actionSet = new PortfolioSelectAllAction();
-			System.out.println("board페이지");
+			System.out.println("포트폴리오 전체보기");
+		} 
+		else if(command.equals("/portfolioOne.do")) {		
+			actionSet = new PortfolioSelectOneAction();
+			System.out.println(request.getParameter("portNum"));
+			System.out.println("포트폴리오 상세보기");
 		} 
 		
 		//TODO

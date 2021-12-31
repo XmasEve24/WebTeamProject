@@ -125,16 +125,35 @@ http://www.tooplate.com/view/2082-pure-mix
 
          <div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="2.3s">
          	  <div class="blog-thumb">
-         		   <c:forEach var="p" items="${portSelectOne}">
+         		   <c:set var="pOne" value="${portSelectOne}"/>        		         		   
+         		   <c:set var="p" value="${pOne.port}" />        		   
          		   <h1><c:out value="${p.portTitle}"/></h1>
          			    <div class="post-format">
-         			   			<span>By <a href="#">${adminId}</a></span>
+         			   			<span>By <a href="#">${p.adminName}</a></span>
 						        <span><i class="fa fa-date"></i><c:out value="${p.portTime}"/></span>
 					       </div>
          		   <p><c:out value="${p.portContent}"/></p>
                <blockquote></blockquote>
-               
-               </c:forEach>
+                            
+               			 <c:forEach var="r" items="${pOne.reply}">
+               			 		
+               			 		${r.memberName }
+               			 		${r.replyContent }
+               			 		${r.replyTime }               			 		
+               			 		
+               			 </c:forEach>	
+               			 
+               <%-- <c:choose>
+					<c:when test="${memberId == null}">
+						로그인 이후에 댓글쓰기 가능
+					</c:when>
+					<c:otherwise>
+					<form>
+						// TODO	
+					</form>
+					</c:otherwise>
+					</c:choose>			  --%>
+         
                <img src="images/blog-img1.jpg" class="img-responsive post-image" alt="Blog">
                
 

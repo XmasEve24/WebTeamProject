@@ -21,8 +21,13 @@ public class ContactInsertAction implements Action{
 	     vo.setContactType(request.getParameter("contactType"));
 	     vo.setMemberEmail(request.getParameter("memberEmail"));
 	     vo.setMemberName(request.getParameter("memberName"));
+	     
+	     if(request.getParameter("portNum") == null) {
+	    	 vo.setPortNum(0);
+	     }
+	     else {
 	     vo.setPortNum(Integer.parseInt(request.getParameter("portNum")));
-	      
+	     }
 	     if(dao.contactInsert(vo)) {	     
 		     System.out.println("문의 넣기 성공");
 			 info.setPath("main.do");

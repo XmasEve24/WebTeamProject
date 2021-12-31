@@ -138,7 +138,8 @@ http://www.tooplate.com/view/2082-pure-mix
 						        <span><i class="fa fa-date"></i><c:out value="${p.portTime}"/></span>
 					       </div>
          		     <p><c:out value="${p.portContent}"/></p>
-         		     <a href="portfolio.jsp" class="btn btn-default">Read More</a>
+         		     <a href="portfolioOne.do?portNum=${p.portNum}" class="btn btn-default">Read More</a>
+         		     <hr>
 			</c:forEach>
          	    </div>
 		    </div>

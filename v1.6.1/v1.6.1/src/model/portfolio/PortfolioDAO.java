@@ -9,13 +9,7 @@ import java.util.ArrayList;
 import model.common.JNDI;
 
 public class PortfolioDAO {
-	
-	// �쟾泥� �룷�듃�뤃由ъ삤瑜� 蹂� �닔 �엳�뒗 硫붿꽌�뱶 selectAll
-	// �븯�굹�쓽 �룷�듃�뤃由ъ삤瑜� 蹂� �닔 �엳�뒗 硫붿꽌�뱶 selectOne
-	// �룷�듃�뤃由ъ삤 �닔�젙�쓣 �쐞�븳 update 
-	// �룷�듃�뤃由ъ삤 �궘�젣瑜� �쐞�븳 delete
-	// �룷�듃�뤃由ъ삤 �옉�꽦�쓣 �쐞�븳 insert 
-	
+
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
@@ -91,17 +85,20 @@ public class PortfolioDAO {
 	    return portData;
 	 }	
 	
-	public ArrayList<PortReplySet> portSelectOne(PortfolioVO vo){
-		
-		ArrayList<PortReplySet> PortReplySet = new ArrayList<PortReplySet>();
+	public PortReplySet portSelectOne(PortfolioVO vo){
+		//System.out.println("로깅0");
+		PortReplySet set = new PortReplySet();
+		conn=JNDIUtil.connect();
 		try {
+			//System.out.println("try문에서의 portNum: "+vo.getPortNum());
 	         pstmt=conn.prepareStatement(sql_portSelectOne);
 	         pstmt.setInt(1, vo.getPortNum());
 	         rs=pstmt.executeQuery();
-	         if(rs.next()) {
-	            PortReplySet prSet = new PortReplySet();   	     
+	        // System.out.println("로깅1");
+	         while(rs.next()) {	          
+	        	//System.out.println("로깅2");
 	            PortfolioVO portVO = new PortfolioVO();
-	            ArrayList<ReplyVO> replyData =new ArrayList<ReplyVO>();
+	            ArrayList<ReplyVO> replyData = new ArrayList<ReplyVO>();
 	            
 	            portVO.setAdminNum(rs.getInt("adminNum"));
 	            portVO.setAdminName(rs.getString("adminName"));
@@ -114,6 +111,7 @@ public class PortfolioDAO {
 	            pstmt.setInt(1, rs.getInt("portNum"));
 	            ResultSet rs2=pstmt.executeQuery();
 	            while(rs2.next()) {
+	            	 //System.out.println("로깅3");
 	               ReplyVO replyVO=new ReplyVO();
 	               
 	               replyVO.setMemberName(rs2.getString("memberName"));	           
@@ -125,16 +123,16 @@ public class PortfolioDAO {
 	               replyData.add(replyVO);
 	            }
 	            
-	            prSet.setPort(portVO);
-	            prSet.setReply(replyData);
+	            set.setPort(portVO);	            
+	            set.setReply(replyData);
 	            
-	            PortReplySet.add(prSet);
 	         }
 	      } catch (SQLException e) {
 	         System.out.println("DAO portselectOne()�뿉�꽌 臾몄젣諛쒖깮!");
 	         e.printStackTrace();
 	      }  	
-		return PortReplySet;
+//		System.out.println("DAO 정상작동");
+		return set;
 	}
 	
 	public boolean replyInsert(ReplyVO vo) {

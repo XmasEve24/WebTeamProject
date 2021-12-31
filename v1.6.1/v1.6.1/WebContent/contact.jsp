@@ -1,3 +1,4 @@
+<%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,6 +13,9 @@ select:invalid{
 	color: #a00;
 }
 </style>
+
+
+
 <head>
 <!--
 
@@ -53,6 +57,21 @@ http://www.tooplate.com/view/2082-pure-mix
 	
 </head>
 <body>
+
+<script>	
+	function chooseType(){
+		let type = document.getElementById('contactType').value;
+		document.getElementById('portNum').disabled = "disable";
+		document.getElementById('portNum').value = null;
+		//console.log(type);
+		//console.log(dis);
+		if(type == "bug report"){
+			document.getElementById('portNum').disabled = false;
+			return true;
+		}
+		return false;
+	}
+</script>
 
 
 <!-- Preloader section
@@ -144,23 +163,25 @@ http://www.tooplate.com/view/2082-pure-mix
 
 		<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="1.6s">
 			<h1>Let's work together!</h1>
-			<div class="contact-form">
+			<div class="contact-form">	
 				<form id="contact-form" method="post" action="contact_insert.do">
-					<select name="contactType" class="form-control" required>
+					<select id="contactType" name="contactType" class="form-control" onchange='chooseType()' required>
 						<option value="" disabled selected>Contact Type</option>
 						<option value="inquiry">inquiry</option>
 						<option value="communication">communication</option>
 						<option value="bug report">bug report</option>
 					</select>
-					
-					<%-- <c:if test="<% // 만약 contactType가 bug report이라면, portNum을 입력받고, 아니라면 보이지 않게끔 %>"> --%>	
-				<input name="portNum" type="text" class="form-control" placeholder="Portfolio Number" required>
+					<%-- <c:if test="<% // 만약 contactType가 bug report이라면, portNum을 입력받고, 아니라면 보이지 않게끔 %>"> 
+					<script>chooseType() == true </script>
+					--%>						
+			
+				<input name="portNum" type="number" class="form-control" placeholder="Portfolio Number" id="portNum" disabled="disabled">		 			
 				
 			<!-- 로그인한 회원만 들어올 수 있으므로, 로그인정보에서 memberNum을 가져온다. -->
 					<!-- <input name="memberName" type="text" class="form-control" placeholder="Your Name"> -->
 					<input type="hidden" name="memberName" value="${memberName }">
 					
-					<input name="memberEmail" type="email" class="form-control" placeholder="Your Email" required>
+					<input name="memberEmail" type="email" class="form-control" placeholder="Contact Email" required>
 					<textarea name="contactContent" class="form-control" placeholder="Message" rows="4" required></textarea>
 					
 					<div class="contact-submit">

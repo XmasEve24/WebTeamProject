@@ -33,6 +33,8 @@ public class ContactDAO {
 		try {
 			pstmt=conn.prepareStatement(sql_contactInsert);
 			pstmt.setString(1, vo.getContactType());
+			
+			
 			pstmt.setInt(2, vo.getPortNum());
 			pstmt.setString(3, vo.getMemberName());
 			pstmt.setString(4, vo.getContactContent());
