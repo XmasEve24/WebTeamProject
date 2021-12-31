@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login Page</title>
+	<title>Login V14</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -29,24 +29,41 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" href="css/animate.min.css">
+	
 </head>
 <body>
-	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w">
+				<form class="login100-form validate-form flex-sb flex-w" method="post" name="signup" action="signup.do">
 					<span class="login100-form-title p-b-32">
-						Account Login
+						Create Your Account
 					</span>
 
 					<span class="txt1 p-b-11">
-						Id
+						Username
 					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="Id" >
+					<div class="wrap-input100 validate-input m-b-36">
+						<input class="input100" type="text" name="memberName" required>
 						<span class="focus-input100"></span>
 					</div>
+					
+					<span class="txt1 p-b-11">
+						Email Address
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "EmailAddress is required">
+						<input class="input100" type="text" name="memberEmail" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<span class="txt1 p-b-11">
+						ID
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "ID is required">
+						<input class="input100" type="text" name="memberId" >
+						<span class="focus-input100"></span>
+					</div>
+					<font name = "checkId" size = "2"></font>
 					
 					<span class="txt1 p-b-11">
 						Password
@@ -55,54 +72,47 @@
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="Pw" >
+						<input class="input100" type="password" name="memberPw" id="memberPw" >
 						<span class="focus-input100"></span>
 					</div>
 					
-					<div class="flex-sb-m w-full p-b-48">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
+					<span class="txt1 p-b-11">
+						Password check
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password" name="memberPwCheck" id="memberPwCheck"  >
+						<span class="focus-input100"></span>
 
-						<div>
-							<a href="#" class="txt3">
-								Forgot Password?
-							</a>
-						</div>
 					</div>
-
+						<font name="check" size="2" color="red"></font>
+					
 					<div class="container-login100-form-btn">
-
-						<button class="login100-form-btn" type="submit" formaction="login.do" formmethod = "post">
+					<br>
+						<input type="button" class="login100-form-btn" onclick = "checkValue();" value="Sign up">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button class="login100-form-btn" onclick = "location.href = 'login.jsp' ">
 							Login
 						</button>
-					
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<button class="login100-form-btn" onclick = "location.href = 'signup.jsp' ">
-							SignUp
-						</button>
-						
-						<!-- <button class="login100-form-btn" onclick = "#">
-							TODO 
-							뒤로가기 기능 구현해주세요! history 사용하면 될듯합니다 
-							
-							Home
-						</button> -->
 					</div>
-
+					<br>
 				</form>
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div id="dropDownSelect1"></div>
+	<script>
 	
+	</script>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery_pw.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	
 <!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -117,6 +127,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
+<script src = "js/jquery-3.6.0.min.js"></script>
 </body>
 </html>
