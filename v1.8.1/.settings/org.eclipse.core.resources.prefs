@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/controller/action/SignUpAction.java=UTF-8
+encoding//src/model/contact/ContactDAO.java=UTF-8
+encoding//src/model/member/MemberDAO.java=UTF-8
+encoding//src/model/portfolio/PortfolioDAO.java=UTF-8
