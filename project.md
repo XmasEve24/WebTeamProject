@@ -27,7 +27,9 @@ v1.0.0 을 시작으로 하여, CRUD같이 기능적인 측면이 추가될 경�
 |고병현|Eclipse|Visual Studio Code|Discord|Oracle|Window10|
 
 ## ERD
-erd_img: img/ERD.jpg
+![ERD](https://user-images.githubusercontent.com/65601760/156382791-f93c839b-9138-4764-8873-c7bae2b2806b.jpg)
+
+## PageContext
 
 ## 장점
 
