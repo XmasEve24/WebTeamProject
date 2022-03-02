@@ -26,8 +26,8 @@ v1.0.0 을 시작으로 하여, CRUD같이 기능적인 측면이 추가될 경�
 |장민호|Eclipse|Visual Studio Code|Discord|MySQL|Linux(ubuntu 20.04)|
 |고병현|Eclipse|Visual Studio Code|Discord|Oracle|Window10|
 
-## UF, ERD
-VSC 참고 
+## ERD
+erd_img: img/ERD.jpg
 
 ## 장점
 
